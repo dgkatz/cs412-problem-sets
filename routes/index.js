@@ -7,7 +7,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  req.body.title
   res.render('index', { title: req.body.title, title_length: req.body.title.length });
 });
 
