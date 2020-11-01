@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= 'Weather app'
+  div
+    form(action='/ps4', method='post')
+      div(data-role='fieldcontain')
+        fieldset(data-role='controlgroup')
+          label(for='city') city
+            input(id='city', type='text', value='', placeholder='boston', name='city')
+      div(data-role='fieldcontain')
+        input(type='submit', value='get weather', data-transition='fade', data-theme='c')
