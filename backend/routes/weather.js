@@ -8,7 +8,7 @@ const {fetchOptions} = require('../config/openweathermap')
 const client = redis.createClient();
 
 
-router.post('/', function (req, res, next) {
+router.post('/weather', function (req, res, next) {
     const city = req.body.city
     client.get(`${city}`, function(err, reply) {
         // reply is null when the key is missing
@@ -16,7 +16,7 @@ router.post('/', function (req, res, next) {
         if (reply) {
             reply = JSON.parse(reply);
             res.json({
-                data: reply,
+                data: [reply, reply, reply, reply],
                 cache_hit: true
             });
         }else {
@@ -28,10 +28,10 @@ router.post('/', function (req, res, next) {
             fetch(url, {method: fetchOptions.method})
                 .then(res => res.json())
                 .then(json => {
-                    const data = { city:  json.name, temp: json.main.temp}
+                    const data = { location:  json.name, temperature: json.main.temp}
                     client.set(`${city}`, JSON.stringify(data), 'EX', 15)
                     res.json({
-                        data: data,
+                        data: [data, data, data, data],
                         cache_hit: false
                     });
                 })

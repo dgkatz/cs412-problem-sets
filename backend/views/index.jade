@@ -3,7 +3,7 @@ extends layout
 block content
   h1= 'Weather app'
   div
-    form(action='/ps5b', method='post')
+    form(action='/api/weather', method='post')
       div(data-role='fieldcontain')
         fieldset(data-role='controlgroup')
           label(for='city') city
