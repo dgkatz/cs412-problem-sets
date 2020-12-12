@@ -22,7 +22,7 @@ router.post('/weather', function (req, res, next) {
         }else {
             let url = new URL(fetchOptions.url)
             const params = new URLSearchParams();
-            params.append('q', req.body.city);
+            params.append('q', city);
             params.append('appid', fetchOptions.secretKey);
             url.search = params.toString();
             fetch(url, {method: fetchOptions.method})
