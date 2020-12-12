@@ -11,9 +11,9 @@ export class WeatherService {
   constructor(private http: HttpClient) {
   }
 
-  getWeather(formData: FormData): Observable<any> {
-    return this.http.post(backendConfig.baseURL + '/api/weather', formData,
-      {observe: "body", responseType: "json"}
+  getWeather(city: string): Observable<any> {
+    return this.http.post(backendConfig.baseURL + '/api/weather', {city: city},
+      {observe: "body", responseType: "json", headers: {'Access-Control-Allow-Origin': '*'}}
     )
   }
 }
