@@ -1,0 +1,11 @@
+<div *ngIf="weather_list.length > 0">
+  <p>Weather data from various cities around Boston:</p>
+  <ul *ngFor="let weather of weather_list">
+    <li>{{weather.location}}</li>
+    <li>{{weather.temperature}}°f</li>
+  </ul>
+</div>
+
+<div>
+  <button (click)="loadWeather()">Load Weather Data</button>
+</div>
