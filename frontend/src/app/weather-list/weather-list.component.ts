@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Weather} from "../data/weather";
-import {weather_list} from "../data/weatherMock";
 
 @Component({
   selector: 'app-weather-list',
@@ -8,15 +7,10 @@ import {weather_list} from "../data/weatherMock";
   styleUrls: ['./weather-list.component.css']
 })
 export class WeatherListComponent implements OnInit {
-
-  weather_list: Weather[] = [];
+  @Input() weather_list: Weather[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  loadWeather(): void {
-    this.weather_list = weather_list
   }
 }
