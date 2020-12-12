@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Weather} from "./data/weather";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+  weather_list: Weather[] = [];
+
+  updateWeatherList(weather_list: Weather[]) {
+    this.weather_list = weather_list;
+  }
 }
